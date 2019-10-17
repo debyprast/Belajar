@@ -34,7 +34,7 @@ public class Kalimat extends Fragment {
         TextView textView = (TextView) view.findViewById(R.id.textData);
         Bundle data = this.getArguments();
 
-        items = data.getParcelable("shop");
+        items = data.getParcelable("kenal");
         String dat = items.getNama()+" Total biaya anda "+items.getJumlah();
         textView.setText(dat);
 

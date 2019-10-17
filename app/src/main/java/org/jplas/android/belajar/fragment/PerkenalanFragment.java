@@ -39,7 +39,6 @@ public class PerkenalanFragment extends Fragment implements View.OnClickListener
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_perkenalan, container, false);
         view = inflater.inflate(R.layout.fragment_perkenalan, container, false);
 
         radioGroup = view.findViewById(R.id.radio_group);
@@ -64,7 +63,7 @@ public class PerkenalanFragment extends Fragment implements View.OnClickListener
             }
             PerkenalanActivity kenal = new PerkenalanActivity(nama, item, jumlah);
             Bundle args = new Bundle();
-            args.putParcelable("shop", (Parcelable) kenal);
+            args.putParcelable("kenal", (Parcelable) kenal);
             Fragment TotalItem = new Kalimat();
             TotalItem.setArguments(args);
             FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();

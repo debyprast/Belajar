@@ -40,13 +40,13 @@ public class PerkenalanActivity implements Parcelable{
         jumlah = in.readInt();
     }
 
-    public static final Creator<PerkenalanActivity> CREATOR = new Parcelable.Creator<PerkenalanActivity>() {
+    public static final Creator<PerkenalanActivity> CREATOR = new Creator<PerkenalanActivity>() {
         @Override
-        public PerkenalanActivty createFromParcel(Parcel in) { return new PerkenalanActivity(in);
+        public PerkenalanActivity createFromParcel(Parcel in) { return new PerkenalanActivity(in);
         }
 
         @Override
-        public PerkenalanActivty[] newArray(int size) {return new PerkenalanActivty[size];
+        public PerkenalanActivity[] newArray(int size) {return new PerkenalanActivity[size];
         }
     };
 
