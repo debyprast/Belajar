@@ -1,6 +1,8 @@
 package org.jplas.android.belajar.fragment;
 
 
+
+
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,15 +15,16 @@ import android.widget.TextView;
 import org.jplas.android.belajar.R;
 import org.jplas.android.belajar.activities.PerkenalanActivity;
 
+
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Kalimat extends Fragment {
-
+public class KalimatFragment extends Fragment {
 
     View view;
     PerkenalanActivity items;
-    public Kalimat() {
+
+    public KalimatFragment() {
         // Required empty public constructor
     }
 
@@ -39,6 +42,8 @@ public class Kalimat extends Fragment {
         textView.setText(dat);
 
         return view;
+
     }
 
 }
+

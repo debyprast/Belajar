@@ -3,10 +3,10 @@ package org.jplas.android.belajar.activities;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class PerkenalanActivity implements Parcelable{
-
+public class PerkenalanActivity implements Parcelable {
     public static final int Laki = 0;
     public static final int Perempuan = 1;
+
     private String nama;
     private int type;
     private int satuan;
@@ -30,7 +30,7 @@ public class PerkenalanActivity implements Parcelable{
         this.nama = nama;
         this.type = type;
         this.satuan = satuan;
-        this.calculate();
+        this.jumlah = calculate();
     }
 
     protected PerkenalanActivity(Parcel in) {
@@ -42,11 +42,13 @@ public class PerkenalanActivity implements Parcelable{
 
     public static final Creator<PerkenalanActivity> CREATOR = new Creator<PerkenalanActivity>() {
         @Override
-        public PerkenalanActivity createFromParcel(Parcel in) { return new PerkenalanActivity(in);
+        public PerkenalanActivity createFromParcel(Parcel in) {
+            return new PerkenalanActivity(in);
         }
 
         @Override
-        public PerkenalanActivity[] newArray(int size) {return new PerkenalanActivity[size];
+        public PerkenalanActivity[] newArray(int size) {
+            return new PerkenalanActivity[size];
         }
     };
 
@@ -61,6 +63,7 @@ public class PerkenalanActivity implements Parcelable{
             default: return 0;
         }
     }
+
 
     @Override
     public int describeContents() {

@@ -19,14 +19,11 @@ import android.widget.Toast;
 import org.jplas.android.belajar.R;
 import org.jplas.android.belajar.activities.PerkenalanActivity;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class PerkenalanFragment extends Fragment implements View.OnClickListener {
 
     View view;
     Button submit;
-    RadioGroup radioGroup;
+    RadioGroup radio;
     EditText namaText, angkaText;
 
 
@@ -41,7 +38,7 @@ public class PerkenalanFragment extends Fragment implements View.OnClickListener
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_perkenalan, container, false);
 
-        radioGroup = view.findViewById(R.id.radio_group);
+        radio = view.findViewById(R.id.radio);
         namaText = view.findViewById(R.id.text_nama);
         submit = (Button) view.findViewById(R.id.button);
         submit.setOnClickListener((View.OnClickListener) this);
@@ -53,21 +50,21 @@ public class PerkenalanFragment extends Fragment implements View.OnClickListener
     public void onClick(View view) {
         String nama = namaText.getText().toString();
         int item = 0;
-        int checkId = radioGroup.getCheckedRadioButtonId();
+        int checkId = radio.getCheckedRadioButtonId();
         if((checkId != -1) && !TextUtils.isEmpty(nama)){
             int jumlah = Integer.parseInt(angkaText.getText().toString());
-            if (checkId == R.id.radio_laki){
+            if (checkId == R.id.radioLaki){
                 item = PerkenalanActivity.Laki;
-            }else if (checkId == R.id.radio_perempuan){
+            }else if (checkId == R.id.radioPerempuan){
                 item = PerkenalanActivity.Perempuan;
             }
             PerkenalanActivity kenal = new PerkenalanActivity(nama, item, jumlah);
             Bundle args = new Bundle();
-            args.putParcelable("kenal", (Parcelable) kenal);
-            Fragment TotalItem = new Kalimat();
-            TotalItem.setArguments(args);
+            args.putParcelable("kenal", kenal);
+            Fragment Kalimat = new KalimatFragment();
+            Kalimat.setArguments(args);
             FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragmentContainer, TotalItem);
+            fragmentTransaction.replace(R.id.fragmenContainer, Kalimat);
             fragmentTransaction.commit();
         }else {
             Toast.makeText(getActivity(), "Please select equipment and your name !", Toast.LENGTH_SHORT).show();
